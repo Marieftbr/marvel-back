@@ -70,6 +70,10 @@ app.get("/character/:id", async (req, res) => {
   }
 });
 
+app.get("/", async (req, res) => {
+  res.json({ message: "ok" });
+});
+
 app.listen(3000, () => {
   console.log("Server has started");
 });

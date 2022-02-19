@@ -49,10 +49,12 @@ app.get("/characters", async (req, res) => {
   try {
     const page = req.query.page ? parseInt(req.query.page) : 1;
     const limit = 100;
+    const name = req.query.name;
     const skip = page * limit - limit;
     const response = await await marvelGet("/characters", {
       limit,
       skip,
+      name,
     });
     res.json(response.data);
   } catch (error) {

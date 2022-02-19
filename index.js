@@ -25,10 +25,12 @@ app.get("/comics", async (req, res) => {
   try {
     const page = req.query.page ? parseInt(req.query.page) : 1;
     const limit = 100;
+    const title = req.query.title;
     const skip = page * limit - limit;
     const response = await marvelGet("/comics", {
       limit,
       skip,
+      title,
     });
     res.json(response.data);
   } catch (error) {
